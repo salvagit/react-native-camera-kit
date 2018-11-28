@@ -19,6 +19,7 @@ export default class App extends Component {
       this.setState({granted: true})
     }
     async function requestCameraPermission() {
+      if (Platform.OS === 'ios') grant();
       if (Platform.OS === 'android') {
         try {
           const granted = await PermissionsAndroid.request(
